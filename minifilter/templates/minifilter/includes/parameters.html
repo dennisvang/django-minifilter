@@ -1,0 +1,20 @@
+{% load minifilter_extras %}
+{% for parameter, values in filter_options.items %}
+    {% if values and values|length > 1 %}
+        <div class="filter">
+            <span>{{ parameter }}:</span>
+            {% if parameter not in request.GET %}
+                all
+            {% else %}
+                <a href="?{% update_url_query parameter 'remove' page=1 %}">all</a>
+            {% endif %}
+            {% for value in values %}
+                {% if request.GET|get:parameter == value %}
+                    {{ value }}
+                {% else %}
+                    <a href="?{% update_url_query parameter value  page=1 %}">{{ value }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endfor %}

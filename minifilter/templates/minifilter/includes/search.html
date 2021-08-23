@@ -1,0 +1,9 @@
+{# form submits to current page (action attribute is omitted) #}
+{% load minifilter_extras %}
+<div class="search">
+    <form method="get">
+        {# only POST requests need CSRF protection, see https://docs.djangoproject.com/en/3.2/ref/csrf/#how-to-use-it #}
+        {{ search_form }}
+        <input type="submit" value="search">
+    </form>
+</div>

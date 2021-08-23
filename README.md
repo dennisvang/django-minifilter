@@ -25,7 +25,7 @@ Here's how we would create a generic list view with a search box filter, links t
 
 ```python
 from django.views import generic
-from minifilter import FilterMixin
+from minifilter.views import FilterMixin
 from myapp.models import MyModel
 
 class MyListView(FilterMixin, generic.ListView):
@@ -39,6 +39,7 @@ class MyListView(FilterMixin, generic.ListView):
         ('month', 'start_date__month'),
     ]
 ```
+
 And here's a simple template for the above:
 
 ```jinja2
@@ -50,7 +51,7 @@ And here's a simple template for the above:
 </head>
 <body>
 {% include 'minifilter/includes/search.html' %}
-{% include 'minifilter/includes/filter.html' %}
+{% include 'minifilter/includes/parameters.html' %}
 <div>
     <ol>
         {% for obj in page_obj %}
