@@ -33,9 +33,11 @@ class MyListView(FilterMixin, generic.ListView):
     template_name = 'myapp/mymodel_list.html'
     paginate_by = 10
     search_fields = ['name']
-    filter_parameters = [  # (url-parameter-name, lookup)
+    filter_parameters = [  
+        # (url-parameter-name, lookup)
         ('year', 'start_date__year'), 
-        ('month', 'start_date__month')]
+        ('month', 'start_date__month'),
+    ]
 ```
 And here's a simple template for the above:
 
