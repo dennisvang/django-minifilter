@@ -10,7 +10,7 @@ This is compatible with pagination.
 
 # Quick example
 
-Consider the following simple model:
+Suppose we have the following simple model, part of an application called `myapp`:
 
 ```python
 from django.db import models
@@ -25,7 +25,7 @@ Here's how we would create a generic list view with a search box filter, links t
 
 ```python
 from django.views import generic
-from djminifilter import FilterMixin
+from minifilter import FilterMixin
 from myapp.models import MyModel
 
 class MyListView(FilterMixin, generic.ListView):
@@ -49,8 +49,8 @@ And here's a simple template for the above:
     <title>My filtered list view</title>
 </head>
 <body>
-{% include 'djminifilter/includes/search.html' %}
-{% include 'djminifilter/includes/filter.html' %}
+{% include 'minifilter/includes/search.html' %}
+{% include 'minifilter/includes/filter.html' %}
 <div>
     <ol>
         {% for obj in page_obj %}
@@ -58,7 +58,7 @@ And here's a simple template for the above:
         {% endfor %}
     </ol>
 </div>
-{% include 'djminifilter/includes/pagination.html' %}
+{% include 'minifilter/includes/pagination.html' %}
 </body>
 </html>
 ```
