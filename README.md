@@ -25,17 +25,18 @@ Here's how we would create a generic list view with a search box filter, links t
 
 ```python
 from django.views import generic
-from minifilter.views import FilterMixin
+from minifilter.mixins import FilterMixin
 from myapp.models import MyModel
+
 
 class MyListView(FilterMixin, generic.ListView):
     model = MyModel
     template_name = 'myapp/mymodel_list.html'
     paginate_by = 10
     search_fields = ['name']
-    filter_parameters = [  
+    filter_parameters = [
         # (url-parameter-name, lookup)
-        ('year', 'start_date__year'), 
+        ('year', 'start_date__year'),
         ('month', 'start_date__month'),
     ]
 ```
@@ -64,4 +65,39 @@ And here's a simple template for the above:
 </html>
 ```
 
+Instead of a generic class-based view, we could also create a function-based list view:
 
+```python
+from django.template.response import TemplateResponse
+from django.core.paginator import Paginator
+from minifilter.filters import search_filter, parameter_filter
+from myapp.models import MyModel
+
+
+def my_list_view(request):
+    queryset = MyModel.objects.all()
+    # filter by search term
+    queryset, search_form = search_filter(
+        queryset=queryset, request=request,
+        search_fields=['name'])
+    # filter queryset based on url query parameters
+    queryset, parameter_choices = parameter_filter(
+        queryset=queryset, request=request,
+        filter_parameters=[
+            ('year', 'start_date__year'),
+            ('month', 'start_date__month')])
+    # paginate filtered queryset
+    # see: https://docs.djangoproject.com/en/stable/topics/pagination/
+    paginator = Paginator(object_list=queryset, per_page=10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    # build response
+    return TemplateResponse(
+        request, template='myapp/mymodel_list.html',
+        context=dict(
+            page_obj=page_obj,
+            parameter_choices=parameter_choices,
+            search_form=search_form,
+        )
+    )
+```

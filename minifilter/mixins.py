@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from minifilter.queries import search_filter, parameter_filter
+from minifilter.filters import search_filter, parameter_filter
 
 
 class FilterMixin(object):
@@ -13,15 +13,15 @@ class FilterMixin(object):
         # filter by search term (which is obtained from a url query parameter)
         queryset, search_form = search_filter(
             queryset=queryset, request=self.request, # noqa
-            field_names=self.search_fields)
+            search_fields=self.search_fields)
         # filter by other url query parameters
-        queryset, filter_options = parameter_filter(
+        queryset, parameter_choices = parameter_filter(
             queryset=queryset, request=self.request,  # noqa
             filter_parameters=self.filter_parameters)
         # get context after filtering, so that (optional) pagination will be
         # applied to the filtered queryset
         context = super().get_context_data(object_list=queryset, **kwargs)  # noqa
         # amend context
-        context['filter_options'] = filter_options
+        context['parameter_choices'] = parameter_choices
         context['search_form'] = search_form
         return context

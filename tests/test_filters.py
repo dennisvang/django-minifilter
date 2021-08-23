@@ -1,5 +1,5 @@
 from django.test import TestCase
-from minifilter.queries import search_filter, parameter_filter
+from minifilter.filters import search_filter, parameter_filter
 
 
 class QueryTests(TestCase):
