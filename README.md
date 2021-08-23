@@ -1,12 +1,26 @@
 # django-minifilter
 
-The django-minifilter app provides minimal filter functionality for list views, including:
+The django-minifilter package provides minimal filter functionality for list views, including:
 
 - a filter search box
 
 - filter links
 
-This is compatible with pagination.
+The result is compatible with django's pagination.
+
+# Installation
+
+The `django-minifilter` package is [available on pypi](https://pypi.org/project/django-minifilter/) and can be installed via `pip`:
+
+```bash
+pip install django-minifilter
+```
+
+or via `pipenv`:
+
+```bash
+pipenv install django-minifilter
+```
 
 # Quick example
 
