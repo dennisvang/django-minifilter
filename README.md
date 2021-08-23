@@ -40,12 +40,11 @@ class MyListView(FilterMixin, generic.ListView):
 And here's a simple template for the above:
 
 ```jinja2
-{% load filterview_extras %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My list view</title>
+    <title>My filtered list view</title>
 </head>
 <body>
 {% include 'djminifilter/includes/search.html' %}
