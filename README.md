@@ -10,7 +10,7 @@ This is compatible with pagination.
 
 # Quick example
 
-Suppose this is our model:
+Consider the following simple model:
 
 ```python
 from django.db import models
@@ -21,7 +21,7 @@ class MyModel(models.Model):
     date = models.DateField(default=timezone.now)
 ```
 
-Here's how we would create a generic list view with filters and pagination:
+Here's how we would create a generic list view with a search box filter, links that filter by year and month, and pagination:
 
 ```python
 from django.views import generic
@@ -37,7 +37,7 @@ class MyListView(FilterMixin, generic.ListView):
         ('year', 'start_date__year'), 
         ('month', 'start_date__month')]
 ```
-And here's a simple template using the search filter, filter links, and pagination:
+And here's a simple template for the above:
 
 ```jinja2
 {% load filterview_extras %}
