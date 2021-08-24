@@ -1,0 +1,50 @@
+[
+  {
+    "model": "tests.testmodel",
+    "pk": 1,
+    "fields": {
+      "name": "abc",
+      "date": "2021-01-01"
+    }
+  },
+    {
+    "model": "tests.testmodel",
+    "pk": 2,
+    "fields": {
+      "name": "bcd",
+      "date": "2022-01-01"
+    }
+  },
+  {
+    "model": "tests.testmodel",
+    "pk": 3,
+    "fields": {
+      "name": "cde",
+      "date": "2022-02-01"
+    }
+  },
+  {
+    "model": "tests.testmodel",
+    "pk": 4,
+    "fields": {
+      "name": "def",
+      "date": "2023-01-01"
+    }
+  },
+  {
+    "model": "tests.testmodel",
+    "pk": 5,
+    "fields": {
+      "name": "efg",
+      "date": "2023-02-01"
+    }
+  },
+  {
+    "model": "tests.testmodel",
+    "pk": 6,
+    "fields": {
+      "name": "fgh",
+      "date": "2023-03-01"
+    }
+  }
+]

@@ -1,24 +1,11 @@
-from django.utils import timezone
 from django.test import TestCase, RequestFactory
 from tests.models import TestModel
 from minifilter.filters import search_filter, parameter_filter
 
 
-TEST_DATA = [
-    dict(name='abc', date=timezone.datetime(2021, 1, 1).date()),
-    dict(name='bcd', date=timezone.datetime(2022, 1, 1).date()),
-    dict(name='cde', date=timezone.datetime(2022, 2, 1).date()),
-    dict(name='def', date=timezone.datetime(2023, 1, 1).date()),
-    dict(name='efg', date=timezone.datetime(2023, 2, 1).date()),
-    dict(name='fgh', date=timezone.datetime(2023, 3, 1).date()),
-]
-
-
 class QueryTests(TestCase):
-    def setUp(self) -> None:
-        self.request_factory = RequestFactory()
-        for data in TEST_DATA:
-            TestModel.objects.create(**data)
+    fixtures = ['test_data']
+    request_factory = RequestFactory()
 
     def test_search_filter_name(self):
         cases = [('', TestModel.objects.count()),
