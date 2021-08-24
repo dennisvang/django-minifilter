@@ -22,6 +22,8 @@ or via `pipenv`:
 pipenv install django-minifilter
 ```
 
+Then add `minifilter` to `INSTALLED_APPS` in your django settings.
+
 # Quick example
 
 Suppose we have the following simple model, part of an application called `myapp`:
