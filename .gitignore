@@ -6,3 +6,4 @@ dist/
 
 # files
 *.pyc
+*.sqlite3
