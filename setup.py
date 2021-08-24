@@ -11,10 +11,9 @@ build and release steps:
 with open('README.md', 'r') as readme:
     long_description = readme.read()
 
-
 setuptools.setup(
     name='django-minifilter',
-    version='0.0.1',
+    version='0.0.2',
     author='dennisvang',
     author_email='djvg@protonmail.com',
     description='Minimal filter and search functionality for django list views.',
@@ -27,8 +26,9 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     url='https://github.com/dennisvang/django-minifilter',
-    packages=['minifilter', 'minifilter.templatetags'],
+    packages=setuptools.find_packages(
+        include=['minifilter*'], exclude=['tests']),
     package_data={'minifilter': ['templates/*/*/*']},
     install_requires=['django==3.*'],
-    python_requires='>=3.8',
+    python_requires='>=3.7',
 )
