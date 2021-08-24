@@ -8,7 +8,7 @@ class FilterMixin(object):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         # get queryset (based on MultipleObjectMixin.get_context_data
-        # and BaseListView.get)
+        # and BaseListView.get, in django.views.generic.list)
         queryset = object_list if object_list is not None else self.get_queryset()  # noqa
         # filter by search term (which is obtained from a url query parameter)
         queryset, search_form = search_filter(
