@@ -8,6 +8,10 @@ The django-minifilter package provides minimal filter functionality for list vie
 
 The result is compatible with django's pagination.
 
+Here's an example of a very basic list-view:
+
+![example](documentation/example.png "example")
+
 # Installation
 
 The `django-minifilter` package is [available on pypi](https://pypi.org/project/django-minifilter/) and can be installed via `pip`:
