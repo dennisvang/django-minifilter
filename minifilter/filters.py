@@ -29,6 +29,7 @@ def search_filter(queryset, request, search_fields):
     """ filter queryset based on search text from request """
     search_queryset = queryset.none()
     search_form = SearchForm(data=request.GET)
+    search_form.set_placeholder(text=', '.join(search_fields))
     if search_form.is_valid():
         search_text = search_form.cleaned_data.get('search')
         for field_name in search_fields:
