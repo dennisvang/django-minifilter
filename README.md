@@ -10,7 +10,7 @@ The package is compatible with django's pagination.
 
 Here's an example of a very basic list-view, showing a search box that filters by name, and links that filter by year and month:
 
-![basic example of filtered list view](https://raw.githubusercontent.com/dennisvang/django-minifilter/a0ceeddc9a7561a68805b135b86ed974de0f175e/documentation/example.png "simple example")
+![basic example of filtered list view](https://raw.githubusercontent.com/dennisvang/django-minifilter/main/documentation/example.png "simple example")
 
 # Installation
 
