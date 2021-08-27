@@ -6,11 +6,11 @@ The django-minifilter package provides minimal filter functionality for list vie
 
 - filter links
 
-The result is compatible with django's pagination.
+The package is compatible with django's pagination.
 
-Here's an example of a very basic list-view:
+Here's an example of a very basic list-view, showing a search box that filters by name, and links that filter by year and month:
 
-![example](documentation/example.png "example")
+![basic example of filtered list view](https://raw.githubusercontent.com/dennisvang/django-minifilter/a0ceeddc9a7561a68805b135b86ed974de0f175e/documentation/example.png "simple example")
 
 # Installation
 
