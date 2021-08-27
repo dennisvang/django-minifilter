@@ -7,6 +7,8 @@
             &nbsp;
             <a href="?{% update_url_query page=page_obj.previous_page_number %}">previous</a>
             &nbsp;
+        {% else %}
+            <span style="visibility: hidden">first &nbsp; previous &nbsp; </span>
         {% endif %}
         <span class="current">
             page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
@@ -16,6 +18,8 @@
             <a href="?{% update_url_query page=page_obj.next_page_number %}">next</a>
             &nbsp;
             <a href="?{% update_url_query page=page_obj.paginator.num_pages %}">last</a>
+        {% else %}
+            <span style="visibility: hidden">&nbsp; next &nbsp; last</span>
         {% endif %}
     </span>
 </div>
