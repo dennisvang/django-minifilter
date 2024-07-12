@@ -28,4 +28,5 @@ class FilterMixinTests(TestCase):
                 self.assertEqual(expected_pages, paginator.num_pages)
                 self.assertEqual(
                     expected_objects,
-                    [obj for page_obj in paginator for obj in page_obj])
+                    [obj for page_obj in paginator for obj in page_obj],
+                )

@@ -12,12 +12,16 @@ class FilterMixin(object):
         queryset = object_list if object_list is not None else self.get_queryset()  # noqa
         # filter by search term (which is obtained from a url query parameter)
         queryset, search_form = search_filter(
-            queryset=queryset, request=self.request, # noqa
-            search_fields=self.search_fields)
+            queryset=queryset,
+            request=self.request,  # noqa
+            search_fields=self.search_fields,
+        )
         # filter by other url query parameters
         queryset, parameter_choices = parameter_filter(
-            queryset=queryset, request=self.request,  # noqa
-            filter_parameters=self.filter_parameters)
+            queryset=queryset,
+            request=self.request,  # noqa
+            filter_parameters=self.filter_parameters,
+        )
         # get context after filtering, so that (optional) pagination will be
         # applied to the filtered queryset
         context = super().get_context_data(object_list=queryset, **kwargs)  # noqa
