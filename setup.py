@@ -13,7 +13,7 @@ with open('README.md', 'r') as readme:
 
 setuptools.setup(
     name='django-minifilter',
-    version='0.0.4',
+    version='0.0.5',
     author='dennisvang',
     author_email='djvg@protonmail.com',
     description='Minimal filter and search functionality for django list views.',
@@ -21,14 +21,13 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Framework :: Django :: 3.2",
+        "Framework :: Django",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
     ],
     url='https://github.com/dennisvang/django-minifilter',
-    packages=setuptools.find_packages(
-        include=['minifilter*'], exclude=['tests']),
+    packages=setuptools.find_packages(include=['minifilter*'], exclude=['tests']),
     package_data={'minifilter': ['templates/*/*/*']},
-    install_requires=['django==3.*'],
-    python_requires='>=3.7',
+    install_requires=['django>=3.2'],
+    python_requires='>=3.9',
 )
